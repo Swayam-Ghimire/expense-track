@@ -1,0 +1,526 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+
+@theme {
+    --font-sans: 'Ubuntu', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f9fafb;
+    color: #1f2937;
+    line-height: 1.6;
+    min-height: 100dvh;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    min-width: 100dvh;
+}
+
+/* Sidebar */
+.sidebar-left {
+    width: 280px;
+    background: snow;
+    border-right: 2px solid #dc2626;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    min-height: 100dvh;
+    box-shadow: 2px 0 5px rgba(220, 38, 38, 0.1);
+}
+
+.logo-branding {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0.5rem;
+    margin-bottom: 1.5rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border-bottom: 2px solid #dc2626;
+}
+
+.logo-branding img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #dc2626;
+}
+
+.logo-branding h1 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #a31621;
+}
+
+.navigation-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
+}
+
+.links {
+    position: relative;
+}
+
+.links a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #374151;
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.links a i {
+    color: #dc2626;
+    font-size: 1.1rem;
+    width: 20px;
+}
+
+.links a:hover {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+.links .active {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+.links .active i{
+    color: #ffffff;
+}
+
+.links a:hover i {
+    color: #ffffff;
+}
+
+/* Special styling for logout */
+.links a[href="/logout"] {
+    color: #a31621;
+    background-color: rgba(163, 22, 33, 0.1);
+}
+
+.links a[href="/logout"]:hover {
+    background-color: #a31621;
+    color: #ffffff;
+}
+
+.links a[href="/logout"] i {
+    color: #a31621;
+}
+
+.links a[href="/logout"]:hover i {
+    color: #ffffff;
+}
+
+.profile-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.5rem;
+    border-radius: 6px;
+    background-color: snow;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-weight: 600;
+    color: #374151;
+}
+
+.profile-link img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #dc2626;
+}
+
+.profile-link:hover {
+    background-color: #dc2626;
+    border-color: #dc2626;
+    color: #ffffffff;
+}
+
+
+.profile-link.active {
+    background-color: #dc2626;
+    color: #ffffffff;
+}
+
+.profile-link.active img {
+    border-color: #dc2626;
+}
+
+
+.user-role {
+    margin-top: auto;
+    padding: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #6b7280;
+    background-color: #f9fafb;
+    border-radius: 6px;
+    font-weight: 500;
+    border-top: 2px solid #dc2626;
+}
+
+.user-role i {
+    margin-right: 0.5rem;
+    color: #dc2626;
+    font-size: 1rem;
+}
+
+.user-role span {
+    color: #374151;
+    font-weight: 600;
+}
+
+/* Main Content */
+.main-right {
+    background-color: #e0e0e0ff;
+    width: calc(100% - 280px);
+    padding: 1.5rem;
+}
+
+/* Dashboard */
+/* Dashboard Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 2px solid #dc2626;
+}
+
+.dashboard-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #a31621;
+    margin: 0;
+}
+
+.btn-add-expense {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+}
+
+.btn-add-expense:hover {
+    background-color: #a31621;
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+/* Summary Cards */
+.summary-cards {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.card {
+    width: 33.33%;
+    background: snow;
+    border-radius: 16px;
+    padding: 1.3rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+.card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card-title {
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #374151;
+}
+
+/* Income Card Specific */
+.card-income {
+    border-left: 5px solid #dc2626;
+}
+
+.income-input {
+    font-size: 1rem;
+    width: 100%;
+    padding: 5px;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #f9fafb;
+}
+
+.income-input:focus {
+    outline: none;
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    background-color: white;
+}
+
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+#show{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #a31621;
+}
+
+.card-actions button {
+    padding: 0.4rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    flex: 1;
+    min-width: 70px;
+}
+
+.btn-edit-income {
+    background-color: #6b7280;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.btn-edit-income:hover {
+    background-color: #4b5563;
+}
+
+.btn-submit-income {
+    background-color: #dc2626;
+    color: white;
+}
+
+.btn-submit-income:hover {
+    background-color: #a31621;
+}
+
+/* Expense Amount Card */
+.card-expense-amount {
+    border-left: 5px solid #a31621;
+}
+
+.trend-status {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #a31621;
+}
+
+/* Amount Left Card */
+.card-amount-left {
+    border-left: 5px solid #374151;
+}
+
+.amount-value {
+    font-weight: 700;
+    color: #374151;
+}
+
+/* Charts Section */
+.charts-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.chart-box {
+    background: snow;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.chart-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #374151;
+    text-align: center;
+}
+
+.chart-monthly-expense {
+    border-top: 4px solid #dc2626;
+}
+
+.chart-expense-vs-income {
+    border-top: 4px solid #a31621;
+}
+
+canvas {
+    max-width: 100%;
+    height: 300px !important;
+}
+
+/* Savings History Table */
+.savings-history {
+    background: snow;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 3px solid #dc2626;
+    padding-bottom: 10px;
+}
+
+.savings-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.savings-table th,
+.savings-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.savings-table th {
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #dc2626;
+}
+
+.savings-table tbody tr {
+    background-color: white;
+}
+
+.savings-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.savings-table td {
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+/* Footer */
+.footer {
+    background-color: rgb(67, 67, 67);
+    text-align: center;
+    padding: 0.7rem;
+    font-size: 0.875rem;
+    color: rgb(252, 252, 252);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar-left {
+        width: 260px;
+    }
+    
+    .main-right {
+        width: calc(100% - 260px);
+    }
+    
+    .logo-branding h1 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .summary-cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .card {
+        width: 100%;
+    }
+    .wrapper {
+        flex-direction: column;
+    }
+    
+    .sidebar-left {
+        width: 100%;
+        min-height: auto;
+        padding: 1rem;
+    }
+    
+    .navigation-links {
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+    }
+    
+    .links a {
+        padding: 0.75rem;
+        white-space: nowrap;
+    }
+    
+    .main-right {
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .logo-branding {
+        margin-bottom: 1rem;
+    }
+    
+    .profile-link {
+        margin: 0.5rem 0;
+    }
+    
+    .user-role {
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+}

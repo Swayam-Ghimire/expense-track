@@ -1,0 +1,214 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+
+@theme {
+    --font-sans: 'Ubuntu', sans-serif;
+}
+@layer components{
+    //Form Styles
+    .form-group {
+        @apply mb-12;    
+    }
+    label {
+        @apply text-gray-700 text-sm font-bold my-2;
+    }
+}
+
+/* Main container full height minus header/footer if needed */
+.registration-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Left side design */
+.register-left {
+    flex: 0.8;
+    background: linear-gradient(135deg, #a31621, #ff4d4d);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.register-left img {
+    width: 180px;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.register-left h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    color: #fff;
+}
+
+.register-left p {
+    font-size: 1.1rem;
+    max-width: 300px;
+    color: #f8dede;
+}
+
+
+.custom-form-container {
+    flex: 1;
+    background: white;
+    padding: 1.5rem;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    text-align: center;
+}
+
+.custom-form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 1.3rem;
+    color: #333;
+    margin-bottom: 0.4rem;
+}
+
+.custom-input-group {
+    position: relative;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.custom-input-group i {
+    position: absolute;
+    top: 20%;
+    left: 10px;
+    color: #a31621;
+}
+
+.custom-input-group input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    font-size: 14px;
+    border-radius: 5px;
+    outline: transparent;
+    border: none;
+    border-bottom: 2px solid #a31621;
+    background-color: white;
+}
+.custom-file-input {
+    margin-bottom: 15px;
+}
+
+.custom-input-group select {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    font-size:14px;
+    border-radius: 5px;
+    outline: transparent;
+    border: none;
+    border-bottom: 2px solid #a31621;
+}
+
+.custom-input-group label {
+    display: block;
+    font-size: 12px;
+    margin-top: 5px;
+    color: rgb(102, 102, 102);
+}
+
+.custom-btn {
+    width: 100%;
+    padding: 10px;
+    background: red;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+}
+
+.custom-btn:hover {
+    background: #a31621;
+}
+
+.custom-links {
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+    margin-top: 14px;
+}
+
+.custom-links p {
+    display: inline;
+    margin: 0px 10px 10px 0px;
+}
+
+.custom-links a {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.custom-links a:hover {
+    color: rgb(255, 140, 0);
+    text-decoration: underline;
+}
+
+
+
+.picture {
+    padding: 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(255, 0, 0);
+    color: white;
+    transition: background-color 0.3s ease-in;
+}
+
+.picture:hover{
+    background-color: #a31621;
+}
+
+/* Media Query for Responsive Design */
+/* Responsive design */
+@media (max-width: 1024px) {
+    .registration-container {
+        flex-direction: column;
+    }
+
+    .register-left {
+        width: 100%;
+        padding: 2rem 1rem;
+        flex: none;
+    }
+
+    .register-left img {
+        width: 120px;
+        margin-bottom: 1rem;
+    }
+
+    .register-left h2 {
+        font-size: 1.5rem;
+    }
+
+    .register-left p {
+        font-size: 1rem;
+    }
+
+    .custom-form-container {
+        width: 100%;
+    }
+}
