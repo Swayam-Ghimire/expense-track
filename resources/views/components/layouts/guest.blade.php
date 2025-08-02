@@ -31,6 +31,9 @@
                         <li><a wire:navigate @class(['nav-btn', 'active'=>request()->is('register')]) href="/register"
                                 class="nav-btn">Get Started</a></li>
                     @endguest
+                    @auth
+                        <li><a wire:navigate class='nav-btn' href="/dashboard">Dashboard</a></li>
+                    @endauth
                 </ul>
             </nav>
         </header>

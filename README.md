@@ -21,14 +21,18 @@ A personal expense tracker built using Laravel and Livewire. It allows users to 
 - **Dashboard UI**
   - Dashboard layout with top bar greeting user by first name
   - Summary cards showing Income, Expense Trend, and Amount Left
-  - Integrated Font Awesome icons for better visual cues
-
----
-
-## 📌 Planned / Future Work
+  - Integrated Font Awesome icons for better visuals
 
 - **Expense List & Editing**
-  - Create the expense
+  - Created a working expense recording form
+
+-- **Responsive Design**
+  - Made the site responsive with different devices.
+---
+
+## Planned / Future Work
+
+- **Expense List & Editing**
   - View and filter past expenses
   - Edit and delete expense entries
 
@@ -44,14 +48,14 @@ A personal expense tracker built using Laravel and Livewire. It allows users to 
   - A profile page where the user can view their profile status and saving amount of all time since using the app
 
 - **Responsive Design**
-  - Make UI mobile-friendly and consistent across devices
+  - Make UI mobile-friendly for all pages;
 
 ---
 
-## 👤 Author
+## Author
 
 **Built by [Swayam Ghimire](https://github.com/Swayam-Ghimire)**
 
-If you like the project, give it a ⭐.
+If you like the project, give it a star.
 
 ---
