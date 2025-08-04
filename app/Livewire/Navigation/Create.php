@@ -49,8 +49,8 @@ class Create extends Component
             'category_id' => $this->selectedCategory,
         ]);
         // 3. Send a success message to the user.
-        session()->flash('success', 'Expense recorded successfully!');
-        return $this->redirect('/dashboard', navigate:true);
+        $this->dispatch('notify', message : 'Expense recorded successfully!');
+        $this->clear(); // Clear the form after saving.
     }
 
     public function clear() {

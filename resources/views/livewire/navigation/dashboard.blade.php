@@ -24,7 +24,6 @@
                         <span><i class="fas fa-rupee-sign text-green-700"></i> {{ $monthlyIncome }}</span>
                     </div>
                     <button type='button' wire:click='display' class="btn-edit-income">Edit</button>
-                    <livewire:notification.message />
                 @else
                     <form wire:submit.prevent='save'>
                         <input type="number" wire:model='monthlyIncome' class="income-input" placeholder="Enter your income">

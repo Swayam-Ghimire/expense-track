@@ -32,10 +32,10 @@ class Dashboard extends Component
 
         // 1. Fetch the existing record once and store it.
         $this->existingIncome = $this->user->income()
-            ->whereDate('created_date', '>', now()->subDays(30))
+            ->whereYear('created_date', now()->year)
+            ->whereMonth('created_date', now()->month)
             ->latest('created_date')
             ->first();
-
 
         // 2. Populate the dedicated property
         if ($this->existingIncome) {
@@ -44,8 +44,10 @@ class Dashboard extends Component
         } else {
             $this->showEdit = false; // Start in form input mode if no income exists
         }
-        $this->monthlyExpense = $this->user->transactions()->whereDate('transaction_date', '>', now()->subDays(30))->latest('transaction_date')->sum('amount');
-        $this->totalExpense = $this->user->transactions()->sum('amount');
+        $this->monthlyExpense = $this->user->transactions()->whereMonth('transaction_date', now()->month)->whereYear('transaction_date', now()->year)
+        ->sum('amount');
+        $this->totalExpense = $this->user->transactions()
+        ->sum('amount');
     }
 
     // Use a computed property for display logic. It's cleaner.
@@ -67,14 +69,13 @@ class Dashboard extends Component
             $this->mount();
         }
         $this->showEdit = true; // Hide form after saving.
-        session()->flash('success', 'Updated successfully');
+        $this->dispatch('notify', message: 'Income Updated!');
     }
 
     public function display(): void
     {
         $this->showEdit = !$this->showEdit;
     }
-
 
 
     public function render()

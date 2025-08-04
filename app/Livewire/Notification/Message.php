@@ -2,12 +2,14 @@
 
 namespace App\Livewire\Notification;
 
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class Message extends Component
 {
     public $visibleErrors = [];
     public $clear;
+    public ?string $message = null;
 
     public function mount()
     {
@@ -16,7 +18,10 @@ class Message extends Component
             $this->visibleErrors = session('errors')->all();
         }
     }
-
+    #[On('notify')]
+    public function showMessage($message){
+        $this->message = $message;
+    }
     public function toggleMsg()
     {
         $this->clear = 'true';

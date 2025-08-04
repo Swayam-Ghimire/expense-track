@@ -57,5 +57,6 @@
                 <i class="fas fa-times"></i> Cancel
             </button>
         </div>
+        <livewire:notification.message />
     </form>
 </div>
