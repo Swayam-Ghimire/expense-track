@@ -75,14 +75,14 @@
         <table class="savings-table">
             <thead>
                 <tr>
-                    <th>Month</th>
+                    <th>Year and Month</th>
                     <th>Income</th>
                     <th>Expenses</th>
                     <th>Savings</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Data rows will go here -->
+                
             </tbody>
         </table>
     </div>

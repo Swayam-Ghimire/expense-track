@@ -32,7 +32,7 @@ class Dashboard extends Component
 
         // 1. Fetch the existing record once and store it.
         $this->existingIncome = $this->user->income()
-            ->whereDate('created_date', '>', now()->subDays(1))
+            ->whereDate('created_date', '>', now()->subDays(30))
             ->latest('created_date')
             ->first();
 
@@ -44,7 +44,7 @@ class Dashboard extends Component
         } else {
             $this->showEdit = false; // Start in form input mode if no income exists
         }
-        $this->monthlyExpense = $this->user->transactions()->whereDate('transaction_date', '>', now()->subDays(1))->latest('transaction_date')->sum('amount');
+        $this->monthlyExpense = $this->user->transactions()->whereDate('transaction_date', '>', now()->subDays(30))->latest('transaction_date')->sum('amount');
         $this->totalExpense = $this->user->transactions()->sum('amount');
     }
 

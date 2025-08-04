@@ -9,7 +9,7 @@
             <label for="amount">Amount<span class="required">*</span></label>
             <input type="number" name="amount" wire:model='amount' placeholder="Eg. 6000" min="0">
             @error('amount')
-            <div class="error-message">Please enter a valid amount</div>
+            <div class="error-message">{{ $message }}</div>
             @enderror
         </div>
 
@@ -18,7 +18,7 @@
             <label for="description">Description <span class="required">*</span></label>
             <textarea wire:model='description' name="description" placeholder="I spent this on tshirt..."></textarea>
             @error('description')
-            <div class="error-message">Please provide a description</div>
+            <div class="error-message">{{ $message }}</div>
             @enderror
         </div>
 
