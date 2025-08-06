@@ -50,7 +50,7 @@
             <h2 class="card-title">
                 <i class="fas fa-coins text-green-600 mr-2"></i>   Amount left this month
             </h2>
-            <p class="amount-value"><i class="fas fa-rupee-sign text-green-600 mr-2"></i>  Rs {{ $monthlyIncome - $monthlyExpense }}</p>
+            <p class="amount-value"><i class="fas fa-rupee-sign text-green-600 mr-2"></i>  Rs {{ $amountLeft }}</p>
         </div>
     </div>
 
@@ -69,20 +69,5 @@
     </div>
 
     <!-- Monthly Saving History Table -->
-    <div class="savings-history">
-        <h3 class="section-title">Monthly Saving History</h3>
-        <table class="savings-table">
-            <thead>
-                <tr>
-                    <th>Year and Month</th>
-                    <th>Income</th>
-                    <th>Expenses</th>
-                    <th>Savings</th>
-                </tr>
-            </thead>
-            <tbody>
-                
-            </tbody>
-        </table>
-    </div>
+    <livewire:saving-history />
 </div>

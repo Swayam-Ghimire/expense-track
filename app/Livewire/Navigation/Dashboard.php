@@ -17,12 +17,12 @@ class Dashboard extends Component
     // public $existingTransaction = null;// Holds the Eloquent model collection, can be null.
 
     #[Rule('integer|required|min:0')]
-    public int $monthlyIncome; // Use a dedicated property for the form input.
+    public float $monthlyIncome; // Use a dedicated property for the form input.
 
-    public int $totalExpense;
-    public int $monthlyExpense; // Dedicated property to display the total expense and monthly expense
+    public float $totalExpense;
+    public float $monthlyExpense; // Dedicated property to display the total expense and monthly expense
 
-    public int $amountLeft; // Dedicated property to display the total amount left monthly
+    public ?float $amountLeft = 0; // Dedicated property to display the total amount left monthly
 
     public bool $showEdit;
 
@@ -48,6 +48,7 @@ class Dashboard extends Component
         ->sum('amount');
         $this->totalExpense = $this->user->transactions()
         ->sum('amount');
+        $this->amountLeft = round($this->monthlyIncome - $this->monthlyExpense, 2);
     }
 
     // Use a computed property for display logic. It's cleaner.
