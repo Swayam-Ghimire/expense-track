@@ -665,6 +665,149 @@ canvas {
     }
 }
 
+/* Transaction specific styles to match home.css design system */
+.transaction-container {
+    background: snow;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    border-top: 4px solid #dc2626;
+}
+
+.transaction-header {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #dc2626;
+}
+
+.transaction-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #a31621;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.transaction-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.transaction-table th {
+    background-color: #f9fafb;
+    padding: 15px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #dc2626;
+}
+
+.transaction-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.transaction-table tbody tr {
+    background-color: white;
+    transition: background-color 0.2s ease;
+}
+
+.transaction-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.amount-cell {
+    font-weight: 600;
+    color: #a31621;
+}
+
+.category-badge {
+    background-color: rgba(220, 38, 38, 0.1);
+    color: #a31621;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.date-cell {
+    color: #374151;
+    font-weight: 500;
+}
+
+.description-cell {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-edit,
+.btn-delete {
+    padding: 6px 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.btn-edit {
+    background-color: #6b7280;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #4b5563;
+}
+
+.btn-delete {
+    background-color: #dc2626;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #a31621;
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.pagination-info {
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.pagination-text {
+    font-weight: 500;
+}
+
 /* Tablets and small laptops */
 @media (max-width: 768px) {
     .wrapper {
@@ -825,6 +968,40 @@ canvas {
         padding: 10px 8px;
         font-size: 0.85rem;
     }
+/* Transaction table for mobile */
+    .transaction-container {
+        padding: 20px;
+        margin: 0 10px;
+    }
+    
+    .transaction-title {
+        font-size: 1.3rem;
+    }
+    
+    .transaction-table {
+        min-width: 600px;
+    }
+    
+    .transaction-table th,
+    .transaction-table td {
+        padding: 10px 8px;
+        font-size: 0.8rem;
+    }
+    
+    .description-cell {
+        max-width: 150px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .btn-edit,
+    .btn-delete {
+        padding: 4px 6px;
+        font-size: 0.75rem;
+    }
     
     .footer {
         padding: 0.75rem;
@@ -832,7 +1009,7 @@ canvas {
     }
 }
 
-/* Large phones */
+/* Small phones */
 @media (max-width: 480px) {
     .sidebar-left {
         padding: 0.75rem;
@@ -1033,6 +1210,24 @@ canvas {
     
     .savings-table th {
         font-size: 0.75rem;
+    }
+    /* Transaction for small phones */
+    .transaction-container {
+        padding: 15px;
+    }
+    
+    .transaction-title {
+        font-size: 1.1rem;
+    }
+    
+    .transaction-table th,
+    .transaction-table td {
+        padding: 8px 6px;
+        font-size: 0.75rem;
+    }
+    
+    .description-cell {
+        max-width: 100px;
     }
     
     .footer {

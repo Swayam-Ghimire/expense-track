@@ -56,3 +56,4 @@ class SavingHistory extends Component
         return view('livewire.saving-history');
     }
 }
+// Adding pagination in the future
