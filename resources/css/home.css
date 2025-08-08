@@ -791,21 +791,9 @@ canvas {
     background-color: #a31621;
 }
 
-.pagination-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20px;
-    border-top: 1px solid #e5e7eb;
-}
-
 .pagination-info {
     color: #6b7280;
     font-size: 0.9rem;
-}
-
-.pagination-text {
-    font-weight: 500;
 }
 
 /* Tablets and small laptops */

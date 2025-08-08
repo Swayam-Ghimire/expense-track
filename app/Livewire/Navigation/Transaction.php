@@ -2,23 +2,26 @@
 
 namespace App\Livewire\Navigation;
 
+use App\Models\Transaction as TransactionModel;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Title;
+use Livewire\WithPagination;
 use Livewire\Component;
 
 #[Title('Transactions')]
 class Transaction extends Component
 {
-    public int $counter = 1;
-    public $user;
-    public $expenses;
+    use WithPagination;
 
-    public function mount() {
-        $this->user = Auth::user();
-        // $this->expenses = $this->user->transactions()->with('category')->latest()->paginate(12);
-    }
+    protected $paginationTheme = 'tailwind';
     public function render()
     {
-        return view('livewire.navigation.transaction');
+        return view('livewire.navigation.transaction', [
+            'expenses' => TransactionModel::with('category:id,category')
+                ->select('amount', 'category_id', 'description', 'transaction_date')
+                ->where('user_id', Auth::id())
+                ->latest('transaction_date')
+                ->paginate(10)
+        ]);
     }
 }

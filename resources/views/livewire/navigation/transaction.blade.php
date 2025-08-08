@@ -2,10 +2,10 @@
     <div class="transaction-header">
         <h2 class="transaction-title">
             <i class="fas fa-history text-red-600 mr-2"></i>
-            Transaction History
+            &nbsp All Transactions
         </h2>
     </div>
-    
+
     <div class="transaction-table-wrapper">
         <table class="transaction-table">
             <thead>
@@ -19,18 +19,18 @@
                 </tr>
             </thead>
             <tbody>
+                @forelse ($expenses as $expense)
                 <tr>
-                    <!-- data goes here -->
-                    <td>1</td>
+                    <td>{{ $loop->iteration }}</td>
                     <td class="amount-cell">
                         <i class="fas fa-rupee-sign text-red-600 mr-1"></i>
-                        1,500
+                        {{ $expense->amount }}
                     </td>
                     <td>
-                        <span class="category-badge">Food</span>
+                        <span class="category-badge">{{ $expense->category->category }}</span>
                     </td>
-                    <td class="date-cell">2024-01-15</td>
-                    <td class="description-cell">Grocery shopping</td>
+                    <td class="date-cell">{{ $expense->transaction_date }}</td>
+                    <td class="description-cell">{{ $expense->description }}</td>
                     <td>
                         <div class="action-buttons">
                             <button class="btn-edit">
@@ -42,14 +42,15 @@
                         </div>
                     </td>
                 </tr>
+                @empty
+                <tr>
+                    <td colspan="6" class="text-center">No transaction found</td>
+                </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
-    
-    <div class="pagination-wrapper">
-        <!-- pagination here -->
-        <div class="pagination-info">
-            <span class="pagination-text">Showing 1 to 10 of 50 entries</span>
-        </div>
+    <div>
+        {{ $expenses->links() }}
     </div>
 </div>
