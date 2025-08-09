@@ -679,6 +679,47 @@ canvas {
     margin-bottom: 25px;
     padding-bottom: 15px;
     border-bottom: 2px solid #dc2626;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 15px; /* Add gap for wrapped items */
+}
+
+.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 2px solid #a31621;
+    border-radius: 12px;
+    background-color: snow;
+    padding: 6px 12px;
+    max-width: 300px;
+    min-width: 150px; /* Ensure minimum width */
+    flex-shrink: 1; /* Allow shrinking */
+}
+
+.search label {
+    color: #a31621; /* Red icon */
+    margin-right: 8px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    background: transparent;
+    color: #333;
+    min-width: 220px; /* Minimum input width */
+}
+
+.search input::placeholder {
+    color: #888; 
 }
 
 .transaction-title {
@@ -762,6 +803,8 @@ canvas {
     display: flex;
     gap: 8px;
     justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    min-width: 120px; /* Ensure minimum width */
 }
 
 .btn-edit,
@@ -769,9 +812,14 @@ canvas {
     padding: 6px 8px;
     border: none;
     border-radius: 6px;
-    cursor: pointer;
     font-size: 0.8rem;
     transition: all 0.3s ease;
+    white-space: nowrap; /* Prevent text wrapping */
+    min-width: 60px; /* Ensure minimum button width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
 }
 
 .btn-edit {
@@ -785,6 +833,7 @@ canvas {
 
 .btn-delete {
     background-color: #dc2626;
+    cursor: pointer;
     color: white;
 }
 
@@ -962,7 +1011,25 @@ canvas {
         padding: 20px;
         margin: 0 10px;
     }
+
+    .transaction-header {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 20px;
+    }
     
+    .search {
+        max-width: 100%;
+        min-width: 100%;
+        order: 2; /* Place search below title */
+    }
+
+    .search input {
+        min-width: 0; /* Remove minimum width constraint */
+        width: 100%;
+    }
+
     .transaction-title {
         font-size: 1.3rem;
     }
@@ -971,25 +1038,30 @@ canvas {
         min-width: 600px;
     }
     
+    /* Table adjustments */
     .transaction-table th,
     .transaction-table td {
-        padding: 10px 8px;
+        padding: 8px 6px;
         font-size: 0.8rem;
     }
     
     .description-cell {
-        max-width: 150px;
+        max-width: 120px;
     }
     
+    /* Action buttons stack vertically on mobile */
     .action-buttons {
         flex-direction: column;
-        gap: 4px;
+        gap: 6px;
+        min-width: 80px;
     }
     
     .btn-edit,
     .btn-delete {
-        padding: 4px 6px;
-        font-size: 0.75rem;
+        padding: 6px 8px;
+        font-size: 0.8rem;
+        min-width: 70px;
+        width: 100%;
     }
     
     .footer {
@@ -1201,22 +1273,66 @@ canvas {
         font-size: 0.75rem;
     }
     /* Transaction for small phones */
+
+    .transaction-header {
+        gap: 15px;
+        padding-bottom: 12px;
+    }
+
     .transaction-container {
         padding: 15px;
     }
     
     .transaction-title {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+    }
+
+    .search {
+        padding: 8px 10px;
+        border-radius: 8px;
+    }
+
+    .search label {
+        font-size: 0.9rem;
+        margin-right: 6px;
+    }
+
+    .search input {
+        font-size: 0.85rem;
+    }
+
+    .action-buttons {
+        gap: 4px;
+        min-width: 70px;
     }
     
+    .btn-edit,
+    .btn-delete {
+        padding: 4px 6px;
+        font-size: 0.75rem;
+        min-width: 60px;
+        gap: 2px;
+    }
+    
+    .btn-edit i,
+    .btn-delete i {
+        font-size: 0.7rem;
+    }
+    
+    /* Very compact table */
     .transaction-table th,
     .transaction-table td {
-        padding: 8px 6px;
+        padding: 6px 4px;
         font-size: 0.75rem;
     }
     
     .description-cell {
-        max-width: 100px;
+        max-width: 80px;
+    }
+    
+    .category-badge {
+        padding: 2px 8px;
+        font-size: 0.7rem;
     }
     
     .footer {
@@ -1299,5 +1415,70 @@ canvas {
     .savings-table td {
         padding: 6px 4px;
         font-size: 0.75rem;
+    }
+
+    .transaction-title {
+        font-size: 1.1rem;
+    }
+    
+    .transaction-title i {
+        font-size: 1rem;
+    }
+    
+    .search {
+        padding: 6px 8px;
+    }
+    
+    .search label {
+        font-size: 0.8rem;
+        margin-right: 4px;
+    }
+    
+    .search input {
+        font-size: 0.8rem;
+    }
+    
+    /* Ultra compact action buttons */
+    .action-buttons {
+        gap: 3px;
+        min-width: 60px;
+    }
+    
+    .btn-edit,
+    .btn-delete {
+        padding: 3px 4px;
+        font-size: 0.7rem;
+        min-width: 50px;
+        gap: 1px;
+    }
+    
+    /* Hide button text on very small screens, show only icons */
+    .btn-edit span,
+    .btn-delete span {
+        display: none;
+    }
+    
+    .btn-edit i,
+    .btn-delete i {
+        font-size: 0.75rem;
+    }
+    // Transaction
+    .transaction-table th,
+    .transaction-table td {
+        padding: 4px 2px;
+        font-size: 0.7rem;
+    }
+    
+    .description-cell {
+        max-width: 60px;
+    }
+    
+    .amount-cell {
+        font-size: 0.7rem;
+    }
+    
+    .category-badge {
+        padding: 1px 6px;
+        font-size: 0.65rem;
     }
 }
