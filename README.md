@@ -25,24 +25,22 @@ A personal expense tracker built using Laravel and Livewire. It allows users to 
 
 - **Expense List & Editing**
   - Created a working expense recording form
+  - Use the previous transactions data from the database to show all time transaction in the table
+  - To make sure user can edit or delete their own transaction
+  - Made sure user can filter the transaction by their category and description
+
+- **Saving History**
+  - Shows the past 6 month saving history along with expense and income of that month
 
 -- **Responsive Design**
   - Made the site responsive with different devices.
 ---
 
 ## Planned / Future Work
-
-- **Expense List & Editing**
-  - View and filter past expenses
-  - Edit and delete expense entries
-
 - **Chart Integration**
   - Use Chart.js or similar to render actual data
   - Show monthly expense trends and savings graphs
 
-- **Transaction**
-  - Use the previous transactions data from the database to show all time transaction in the table
-  - To make sure user can edit or delete their own transaction
 
 - **Profile Card**
   - A profile page where the user can view their profile status and saving amount of all time since using the app
