@@ -6,8 +6,10 @@ use App\Models\Categories;
 use App\Models\Transaction as ModelTransaction;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Rule;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Edit')]
 class Edit extends Component
 {
     #[Rule('required|integer|min:0')]

@@ -6,7 +6,7 @@
             @csrf
             <div class="custom-input-group">
                 <i class="fas fa-user"></i>
-                <input type="text" name="name" id="lname" placeholder="(e.g Swayam Ghimire)" required>
+                <input type="text" name="name" id="name" placeholder="(e.g Swayam Ghimire)" required>
                 <label for="name">User Name</label>
             </div>
             <div class="custom-input-group">
@@ -24,7 +24,7 @@
                 <i class="fas fa-lock"></i>
                 <input type="password" name="password_confirmation" id="password" placeholder="Confirm Password"
                     required>
-                <label for="password_confirmation">Confirm Password</label>
+                <label for="password">Confirm Password</label>
             </div>
 
             <div class="custom-file-input">

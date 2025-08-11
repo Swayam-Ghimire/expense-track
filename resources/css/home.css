@@ -618,53 +618,6 @@ canvas {
     display: block;
 }
 
-
-/* Footer */
-.footer {
-    background-color: rgb(67, 67, 67);
-    text-align: center;
-    padding: 0.5rem;
-    font-size: 0.8rem;
-    color: rgb(252, 252, 252);
-}
-
-/* Responsive Design */
-/* Enhanced Responsive Design - Mobile First Approach */
-
-/* Small tablets and large phones (landscape) */
-@media (max-width: 1024px) {
-    .sidebar-left {
-        width: 260px;
-    }
-    
-    .main-right {
-        width: calc(100% - 260px);
-        padding: 1.25rem;
-    }
-    
-    .logo-branding h1 {
-        font-size: 1.1rem;
-    }
-    
-    .form-container {
-        max-width: 600px;
-        padding: 30px;
-    }
-    
-    .summary-cards {
-        gap: 15px;
-    }
-    
-    .charts-section {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    
-    canvas {
-        height: 250px !important;
-    }
-}
-
 /* Transaction specific styles to match home.css design system */
 .transaction-container {
     background: snow;
@@ -845,6 +798,329 @@ canvas {
     color: #6b7280;
     font-size: 0.9rem;
 }
+
+/* Profile Page Styles */
+.profile-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.profile-card {
+    background: snow;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    border-top: 4px solid #dc2626;
+    overflow: hidden;
+}
+
+.profile-header {
+    padding: 1.5rem;
+    border-bottom: 2px solid #dc2626;
+}
+
+.profile-header h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #a31621;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.profile-header i {
+    color: #dc2626;
+    margin-right: 0.75rem;
+}
+
+/* Main Content Grid */
+.profile-content {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Form Section */
+.profile-form {
+    flex: 2;
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #e5e7eb;
+}
+
+#section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #dc2626;
+    display: flex;
+    align-items: center;
+}
+
+#section-title i {
+    color: #dc2626;
+    margin-right: 0.5rem;
+}
+
+/* Shared Input Styles */
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    background-color: #f9fafb;
+    color: #374151;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    background-color: white;
+}
+
+.select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.select-wrapper i {
+    position: absolute;
+    left: 0.75rem;
+    color: #dc2626;
+    pointer-events: none;
+}
+
+.select-wrapper select {
+    padding-left: 2.5rem;
+}
+
+/* Password Section */
+.password-section {
+    background: white;
+    border-radius: 8px;
+    padding: 1.25rem;
+    border: 1px solid #e5e7eb;
+    margin-top: 1rem;
+}
+
+.password-section h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    align-items: center;
+}
+
+.password-section h4 i {
+    color: #dc2626;
+    margin-right: 0.5rem;
+}
+
+.password-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.password-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.password-group label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 0.25rem;
+}
+
+.password-field {
+    padding: 0.6rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    background-color: #f9fafb;
+}
+
+.password-field:focus {
+    outline: none;
+    border-color: #dc2626;
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.1);
+    background-color: white;
+}
+
+.password-confirm {
+    grid-column: span 2;
+}
+
+/* Profile Picture Section */
+.profile-picture {
+    flex: 1;
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-picture h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #dc2626;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-picture h3 i {
+    color: #dc2626;
+    margin-right: 0.5rem;
+}
+
+.image-container {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #dc2626;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.2);
+}
+
+.camera-overlay {
+    position: absolute;
+    right: -1px;
+    bottom: -1px;
+    background-color: #dc2626;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.camera-overlay i {
+    font-size: 0.85rem;
+}
+
+.profile-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 1.5rem;
+}
+
+.update-btn {
+    width: 100%;
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 0.8rem 0.6rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.update-btn:hover {
+    background-color: #a31621;
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+}
+
+.update-btn i {
+    font-size: 0.8rem;
+}
+
+
+/* Footer */
+.footer {
+    background-color: rgb(67, 67, 67);
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+    color: rgb(252, 252, 252);
+}
+
+/* Responsive Design */
+/* Enhanced Responsive Design - Mobile First Approach */
+
+/* Small tablets and large phones (landscape) */
+@media (max-width: 1024px) {
+    .sidebar-left {
+        width: 260px;
+    }
+    
+    .main-right {
+        width: calc(100% - 260px);
+        padding: 1.25rem;
+    }
+    
+    .logo-branding h1 {
+        font-size: 1.1rem;
+    }
+    
+    .form-container {
+        max-width: 600px;
+        padding: 30px;
+    }
+    
+    .summary-cards {
+        gap: 15px;
+    }
+    
+    .charts-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    canvas {
+        height: 250px !important;
+    }
+}
+
 
 /* Tablets and small laptops */
 @media (max-width: 768px) {
@@ -1062,6 +1338,56 @@ canvas {
         font-size: 0.8rem;
         min-width: 70px;
         width: 100%;
+    }
+
+    /* Profile responsive design */
+
+    .profile-content {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+        padding: 1.1rem;
+    }
+
+    .password-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .password-confirm {
+        grid-column: span 1;
+    }
+
+    .profile-header {
+        padding: 0.7rem;
+    }
+
+    .profile-header h2 {
+        font-size: 0.9rem;
+    }
+
+    .profile-form,
+    .profile-picture {
+        padding: 1.25rem;
+    }
+
+    #section-title {
+        font-size: 0.8rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .camera-overlay {
+        width: 28px;
+        height: 28px;
+    }
+
+    .camera-overlay i {
+        font-size: 0.75rem;
     }
     
     .footer {
@@ -1334,6 +1660,91 @@ canvas {
         padding: 2px 8px;
         font-size: 0.7rem;
     }
+
+    .profile-content {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .profile-header {
+        padding: 1rem;
+    }
+
+    .profile-header h2 {
+        font-size: 1.2rem;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .profile-form,
+    .profile-picture {
+        padding: 1rem;
+    }
+
+    #section-title {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .input-group {
+        margin-bottom: 1rem;
+    }
+
+    .input-group label {
+        font-size: 0.85rem;
+    }
+
+    .input-field,
+    .password-field {
+        padding: 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .password-section {
+        padding: 1rem;
+        margin-top: 0.75rem;
+    }
+
+    .password-section h4 {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .password-row {
+        gap: 0.5rem;
+    }
+
+    .password-group label {
+        font-size: 0.8rem;
+    }
+
+    .profile-image {
+        width: 80px;
+        height: 80px;
+        border-width: 3px;
+    }
+
+    .camera-overlay {
+        width: 24px;
+        height: 24px;
+        right: 4px;
+        bottom: 4px;
+    }
+
+    .camera-overlay i {
+        font-size: 0.7rem;
+    }
+
+    .profile-name {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .update-btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
     
     .footer {
         padding: 0.5rem;
@@ -1480,5 +1891,54 @@ canvas {
     .category-badge {
         padding: 1px 6px;
         font-size: 0.65rem;
+    }
+
+    .profile-header h2 {
+        font-size: 1.1rem;
+    }
+
+    #section-title {
+        font-size: 0.85rem;
+    }
+
+    .input-group label {
+        font-size: 0.8rem;
+    }
+
+    .input-field,
+    .password-field {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .password-section h4 {
+        font-size: 0.85rem;
+    }
+
+    .password-group label {
+        font-size: 0.75rem;
+    }
+
+    .profile-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .camera-overlay {
+        width: 20px;
+        height: 20px;
+    }
+
+    .camera-overlay i {
+        font-size: 0.6rem;
+    }
+
+    .profile-name {
+        font-size: 1rem;
+    }
+
+    .update-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
     }
 }

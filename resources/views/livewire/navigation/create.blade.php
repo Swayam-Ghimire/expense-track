@@ -7,7 +7,7 @@
         <!-- Amount Field -->
         <div class="input-field">
             <label for="amount">Amount<span class="required">*</span></label>
-            <input type="number" name="amount" wire:model='amount' placeholder="Eg. 6000" min="0">
+            <input type="number" name="amount" id="amount" wire:model='amount' placeholder="Eg. 6000" min="0">
             @error('amount')
             <div class="error-message">{{ $message }}</div>
             @enderror
@@ -16,7 +16,7 @@
         <!-- Description Field -->
         <div class="input-field">
             <label for="description">Description <span class="required">*</span></label>
-            <textarea wire:model='description' name="description" placeholder="I spent this on tshirt..."></textarea>
+            <textarea wire:model='description' name="description" id="description" placeholder="I spent this on tshirt..."></textarea>
             @error('description')
             <div class="error-message">{{ $message }}</div>
             @enderror
@@ -26,7 +26,7 @@
         <div class="form-row">
             <!-- Expense Date -->
             <div class="input-field">
-                <label for="expense_date">Expense Date <span class="required">*</span></label>
+                <label for="expensedate">Expense Date <span class="required">*</span></label>
                 <input wire:model='date' type="date" name="expense_date" id="expensedate">
                 @error('date')
                 <div class="error-message">{{ $message }}</div>
@@ -36,7 +36,7 @@
             <!-- Category -->
             <div class="input-field">
                 <label for="category">Category <span class="required">*</span></label>
-                <select name="category" wire:model='selectedCategory'>
+                <select name="category" id="category" wire:model='selectedCategory'>
                     <option value="" selected>Select one</option>
                     @foreach($this->categories as $cat)
                     <option value="{{ $cat->id }}">{{ $cat->category }}</option>
