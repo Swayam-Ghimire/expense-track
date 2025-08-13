@@ -55,12 +55,7 @@ class Edit extends Component
         return $this->redirect('/transaction', navigate:true);
 
     }
-
-    public function clear()
-    {
-        $this->reset(['amount', 'description', 'selectedCategory']);
-        $this->date = now()->format('Y-m-d');
-    }
+    
     public function render()
     {
         return view('livewire.navigation.edit');

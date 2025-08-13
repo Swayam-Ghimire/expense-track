@@ -604,7 +604,6 @@ canvas {
     color: #dc2626;
     font-size: 0.875rem;
     margin-top: 5px;
-    display: none;
 }
 
 .input-field.error input,
@@ -614,9 +613,6 @@ canvas {
     background-color: #fef2f2;
 }
 
-.input-field.error .error-message {
-    display: block;
-}
 
 /* Transaction specific styles to match home.css design system */
 .transaction-container {
@@ -1072,6 +1068,37 @@ canvas {
 
 .update-btn i {
     font-size: 0.8rem;
+}
+
+.stats-card {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #333;
+    margin-top: 1rem; /* margin at the top */
+    width: 100%;
+}
+
+
+.stats-card h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2b323eff;
+}
+
+.stats-amount {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #e63946; /* nice red highlight */
+    display: block;
+}
+
+.stats-subtext {
+    font-size: 0.9rem;
+    color: #2b323eff;
+    font-weight:500;
 }
 
 
