@@ -21,7 +21,8 @@
                     <!-- Username Field -->
                     <div class="input-group">
                         <label for="username">Username</label>
-                        <input wire:model='name' class="input-field" type="text" id="username" value="{{ $user->name }}" placeholder="Enter your username">
+                        <input wire:model='name' class="input-field-profile" type="text" id="username" value="{{ $user->name }}"
+                            placeholder="Enter your username">
                     </div>
 
                     <!-- User Type Field -->
@@ -29,7 +30,7 @@
                         <label for="user_type">Type</label>
                         <div class="select-wrapper">
                             <i class="fas fa-users"></i>
-                            <select wire:model.live="user_type" class="input-field" name="type" id="user_type" required>
+                            <select wire:model.live="user_type" class="input-field-profile" name="type" id="user_type" required>
                                 <option value="">Select one</option>
                                 <option value="Student">Student</option>
                                 <option value="Employee">Employee</option>
@@ -47,18 +48,21 @@
                         <div class="password-row">
                             <div class="password-group">
                                 <label for="current">Current Password</label>
-                                <input class="password-field" type="password" id="current" placeholder="Enter current password">
+                                <input class="password-field" type="password" id="current" wire:model='current'
+                                    placeholder="Enter current password">
                             </div>
 
                             <div class="password-group">
                                 <label for="new">New Password</label>
-                                <input class="password-field" type="password" id="new" placeholder="Enter new password">
+                                <input class="password-field" wire:model='new' type="password" id="new"
+                                    placeholder="Enter new password">
                             </div>
                         </div>
 
                         <div class="password-group password-confirm">
                             <label for="confirm">Confirm New Password</label>
-                            <input class="password-field" type="password" name="password_confirmation" id="confirm" placeholder="Confirm new password">
+                            <input class="password-field" type="password" name="password_confirmation" id="confirm"
+                                wire:model='confirm' placeholder="Confirm new password">
                         </div>
                     </div>
                 </div>
@@ -75,7 +79,9 @@
                         @if($user->img_path)
                         <img class="profile-image" src="{{ asset('storage/' . $user->img_path) }}" alt="Profile Photo">
                         @else
-                        <img class="profile-image" src="https://ui-avatars.com/api/?name={{ urlencode($user->name) }}&color=FFFFFF&background=dc2626" alt="Profile photo">
+                        <img class="profile-image"
+                            src="https://ui-avatars.com/api/?name={{ urlencode($user->name) }}&color=FFFFFF&background=dc2626"
+                            alt="Profile photo">
                         @endif
 
                         <!-- Camera Icon Overlay -->

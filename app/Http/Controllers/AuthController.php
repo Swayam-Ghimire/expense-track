@@ -15,7 +15,7 @@ class AuthController extends Controller
     {
         // /register -> post
         $validate = $request->validate([
-            'name' => 'required|min:3|max:255|string',
+            'name' => 'required|min:3|max:25|string',
             'email' => 'required|email|unique:users|max:255',
             'type' => 'required|in:Student,Employee',
             'password' => 'required|string|min:8|max:15|confirmed',
