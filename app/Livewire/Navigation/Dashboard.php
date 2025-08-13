@@ -70,7 +70,7 @@ class Dashboard extends Component
             $this->mount();
         }
         $this->showEdit = true; // Hide form after saving.
-        $this->dispatch('notify', message: 'Income Updated!');
+        $this->dispatch('notify', message: 'Income Updated!', clear: 'false');
     }
 
     public function display(): void

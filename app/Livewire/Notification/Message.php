@@ -21,7 +21,9 @@ class Message extends Component
     #[On('notify')]
     public function showMessage($message){
         $this->message = $message;
+        $this->clear = 'false';
     }
+
     public function toggleMsg()
     {
         $this->clear = 'true';
