@@ -32,22 +32,20 @@ A personal expense tracker built using Laravel and Livewire. It allows users to 
 - **Saving History**
   - Shows the past 6 month saving history along with expense and income of that month
 
--- **Responsive Design**
+- **Profile Card**
+  - A profile page where the user can view their profile status.
+  - They can edit their profile information including name, type and password
+  - View the amount saved by them since using the app
+
+- **Responsive Design**
   - Made the site responsive with different devices.
+  - Make UI mobile-friendly for all pages;
 ---
 
 ## Planned / Future Work
 - **Chart Integration**
   - Use Chart.js or similar to render actual data
   - Show monthly expense trends and savings graphs
-
-
-- **Profile Card**
-  - A profile page where the user can view their profile status and saving amount of all time since using the app
-
-- **Responsive Design**
-  - Make UI mobile-friendly for all pages;
-
 ---
 
 ## Author

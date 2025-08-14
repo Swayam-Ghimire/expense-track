@@ -4,6 +4,7 @@ namespace App\Livewire\Navigation;
 
 use App\Models\Categories;
 use App\Models\Transaction as ModelTransaction;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Rule;
 use Livewire\Attributes\Title;
@@ -28,6 +29,9 @@ class Edit extends Component
 
     public function mount(ModelTransaction $transaction)
     {
+        if ($transaction->user_id != Auth::id()) {
+            return redirect()->back();
+        }
         $this->transaction = $transaction;
         $this->amount = $transaction->amount;
         $this->description = $transaction->description;
