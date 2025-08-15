@@ -365,28 +365,34 @@ body {
     color: #374151;
 }
 
-/* Charts Section */
+/* Charts Section - Full Width */
 .charts-section {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
     gap: 30px;
     margin-bottom: 40px;
+    width: 100%;
 }
 
 .chart-box {
+    width: 100%;
     background: snow;
     border-radius: 16px;
-    padding: 30px;
+    padding: 20px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     border: 1px solid #e5e7eb;
+    min-height: 450px; /* Ensure consistent height */
+    display: flex;
+    flex-direction: column;
 }
 
 .chart-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 20px;
     color: #374151;
     text-align: center;
+    flex-shrink: 0; /* Don't shrink the title */
 }
 
 .chart-monthly-expense {
@@ -397,10 +403,14 @@ body {
     border-top: 4px solid #a31621;
 }
 
-canvas {
-    max-width: 100%;
-    height: 300px !important;
+/* Chart Canvas - Full Width and Responsive */
+.chart-box canvas {
+    width: 100% !important;
+    height: 350px !important;
+    max-width: 95%;
+    flex-grow: 1; /* Take remaining space */
 }
+
 
 /* Savings History Table */
 .savings-history {
@@ -1139,11 +1149,15 @@ canvas {
     }
     
     .charts-section {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column on tablets */
         gap: 20px;
     }
     
-    canvas {
+    .chart-box {
+        min-height: 350px;
+    }
+    
+    .chart-box canvas {
         height: 250px !important;
     }
 }
@@ -1253,19 +1267,18 @@ canvas {
         margin-bottom: 15px;
     }
     
-    .charts-section {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        margin-bottom: 30px;
-    }
-    
     .chart-box {
         padding: 20px;
+        min-height: 300px;
     }
     
     .chart-title {
         font-size: 1.1rem;
         margin-bottom: 15px;
+    }
+    
+    .chart-box canvas {
+        height: 220px !important;
     }
     
     canvas {
@@ -1814,13 +1827,14 @@ canvas {
     
     .chart-box {
         padding: 12px;
+        min-height: 250px;
     }
     
     .chart-title {
         font-size: 0.9rem;
     }
     
-    canvas {
+    .chart-box canvas {
         height: 180px !important;
     }
     

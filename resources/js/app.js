@@ -1,4 +1,6 @@
 import './bootstrap';
+import './chart';
+
 document.addEventListener('DOMContentLoaded', function () {
     const fileInput = document.getElementById('picture');
     const fileNameDisplay = document.getElementById('file-name');

@@ -20,18 +20,19 @@
             </h2>
             <div class="card-actions">
                 @if($showEdit)
-                    <div id="show">
-                        <span><i class="fas fa-rupee-sign text-green-700"></i> {{ $monthlyIncome }}</span>
-                    </div>
-                    <button type='button' wire:click='display' class="btn-edit-income">Edit</button>
+                <div id="show">
+                    <span><i class="fas fa-rupee-sign text-green-700"></i> {{ $monthlyIncome }}</span>
+                </div>
+                <button type='button' wire:click='display' class="btn-edit-income">Edit</button>
                 @else
-                    <form wire:submit.prevent='save'>
-                        <input type="number" wire:model='monthlyIncome' class="income-input" placeholder="Enter your income">
-                        <button type='submit' class="btn-submit-income">Save</button>
-                        @error('monthlyIncome')
-                            <span class="text-red-500 text-xs mt-1 w-full block">{{ $message }}</span>
-                        @enderror
-                    </form>
+                <form wire:submit.prevent='save'>
+                    <input type="number" wire:model='monthlyIncome' class="income-input"
+                        placeholder="Enter your income">
+                    <button type='submit' class="btn-submit-income">Save</button>
+                    @error('monthlyIncome')
+                    <span class="text-red-500 text-xs mt-1 w-full block">{{ $message }}</span>
+                    @enderror
+                </form>
                 @endif
             </div>
         </div>
@@ -42,15 +43,15 @@
                 <i class="fas fa-rupee-sign text-blue-500 mr-2"></i>
                 All Time Amount Spent
             </h2>
-            <p class="trend-status"><i class="fas fa-rupee-sign text-blue-500 mr-2"></i> {{ $totalExpense }}</p>
+            <p class="trend-status"><i class="fas fa-rupee-sign text-blue-500 mr-2"></i> {{ number_format($totalExpense, 2) }}</p>
         </div>
 
         <!-- Amount Left Card -->
         <div class="card card-amount-left">
             <h2 class="card-title">
-                <i class="fas fa-coins text-green-600 mr-2"></i>   Amount left this month
+                <i class="fas fa-coins text-green-600 mr-2"></i> Amount left this month
             </h2>
-            <p class="amount-value"><i class="fas fa-rupee-sign text-green-600 mr-2"></i>  Rs {{ $amountLeft }}</p>
+            <p class="amount-value"><i class="fas fa-rupee-sign text-green-600 mr-2"></i> Rs {{ number_format($amountLeft, 2) }}</p>
         </div>
     </div>
 
@@ -67,6 +68,18 @@
             <canvas id="expenseVsIncomeChart"></canvas>
         </div>
     </div>
+
+    <script>
+        window.expenseByCategoryChartData = {
+            labels: @json(array_keys($expenseByCategory)),
+            values: @json(array_values($expenseByCategory))
+        };
+        window.expenseVsIncomeChartData = {
+            labels: @json(array_column($incomeVsExpense, 'year_month')),
+            income: @json(array_column($incomeVsExpense, 'income')),
+            expense: @json(array_column($incomeVsExpense, 'expense'))
+        };
+    </script>
 
     <!-- Monthly Saving History Table -->
     <livewire:saving-history />

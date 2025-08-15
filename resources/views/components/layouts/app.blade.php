@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-    @vite(['resources/css/home.css', 'resources/css/createform.css'])
+    @vite(['resources/css/home.css', 'resources/js/app.js'])
 </head>
 
 <body>

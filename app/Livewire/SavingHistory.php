@@ -43,9 +43,9 @@ class SavingHistory extends Component
 
             $data[] = [
                 'year_month' => $year_month,
-                'income' => $income,
-                'expense' => round($expense, 2),
-                'saving' => round($saving, 2),
+                'income' => number_format($income, 2),
+                'expense' => number_format($expense, 2),
+                'saving' => number_format($saving, 2),
             ];
         }
         return $data;
@@ -56,4 +56,3 @@ class SavingHistory extends Component
         return view('livewire.saving-history');
     }
 }
-// Adding pagination in the future
