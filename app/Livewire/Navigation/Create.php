@@ -29,7 +29,6 @@ class Create extends Component
 
     public function mount(): void {
         $this->user = Auth::user();
-        // Set the default date to today for a better user experience.
         $this->date = now()->format('Y-m-d');
     }
 

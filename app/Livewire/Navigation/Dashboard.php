@@ -26,8 +26,6 @@ class Dashboard extends Component
 
     public bool $showEdit;
 
-    public $incomes;
-    public $expenses;
 
     public function mount(): void
     {
@@ -75,35 +73,35 @@ class Dashboard extends Component
     }
 
     #[Computed]
-    public function allTimeIncomeVsExpense(): array{
-        // Get all time data for income and expense but month wise in an array
-        $this->incomes = $this->user->income()
-        ->selectRaw("STRFTIME('%Y-%M', created_date) as year_month, monthly_income as total_income")
-        ->orderBy('created_date', 'asc')
-        ->groupBy('year_month')
-        ->pluck('total_income', 'year_month')
-        ->toArray();
+    public function allTimeIncomeVsExpense(): array
+    {
+        // Get the last 12 months income and expense as an array
+        $incomes = $this->user->income()
+            ->selectRaw("STRFTIME('%Y-%m', created_date) as year_month, SUM(monthly_income) as total_income")
+            ->groupBy('year_month')
+            ->pluck('total_income', 'year_month')
+            ->toArray();
 
-        $this->expenses = $this->user->transactions()->selectRaw("STRFTIME('%Y-%m', transaction_date) as year_month, SUM(amount) as total_expense")
-        ->orderBy('transaction_date', 'desc')
-        ->groupBy('year_month')
-        ->pluck('total_expense', 'year_month')
-        ->toArray();
-        $allDates = array_unique(array_merge(array_keys($this->incomes), array_keys($this->expenses)));
-        sort($allDates);
-        $data = [];
-        foreach($allDates as $date) {
-            $income = $this->incomes[$date] ?? 0;
-            $expense = $this->expenses[$date] ?? 0;
-            $year_month = date('Y-F', strtotime($date));
-            $data[] = [
-                'year_month' => $year_month,
-                'income' => number_format($income, 2),
-                'expense' => number_format($expense, 2)
+        $expenses = $this->user->transactions()
+            ->selectRaw("STRFTIME('%Y-%m', transaction_date) as year_month, SUM(amount) as total_expense")
+            ->groupBy('year_month')
+            ->pluck('total_expense', 'year_month')
+            ->toArray();
+
+        // Generate last 12 months including current
+        $months = [];
+        for ($i = 11; $i >= 0; $i--) {
+            $key = date('Y-m', strtotime("-$i months"));
+            $label = date('M Y', strtotime("-$i months")); // e.g. "Jan 2025"
+            $months[] = [
+                'year_month' => $label,
+                'income' => (float) ($incomes[$key] ?? 0),
+                'expense' => (float) ($expenses[$key] ?? 0),
+                'saving' => number_format(($incomes[$key] ?? 0) - ($expenses[$key] ?? 0), 2),
             ];
         }
-        return $data;
-        
+
+        return $months;
     }
 
     public function save(): void

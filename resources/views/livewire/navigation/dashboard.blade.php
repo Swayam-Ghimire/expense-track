@@ -43,7 +43,8 @@
                 <i class="fas fa-rupee-sign text-blue-500 mr-2"></i>
                 All Time Amount Spent
             </h2>
-            <p class="trend-status"><i class="fas fa-rupee-sign text-blue-500 mr-2"></i> {{ number_format($totalExpense, 2) }}</p>
+            <p class="trend-status"><i class="fas fa-rupee-sign text-blue-500 mr-2"></i> {{ number_format($totalExpense,
+                2) }}</p>
         </div>
 
         <!-- Amount Left Card -->
@@ -51,7 +52,8 @@
             <h2 class="card-title">
                 <i class="fas fa-coins text-green-600 mr-2"></i> Amount left this month
             </h2>
-            <p class="amount-value"><i class="fas fa-rupee-sign text-green-600 mr-2"></i> Rs {{ number_format($amountLeft, 2) }}</p>
+            <p class="amount-value"><i class="fas fa-rupee-sign text-green-600 mr-2"></i> Rs {{
+                number_format($amountLeft, 2) }}</p>
         </div>
     </div>
 
@@ -82,5 +84,27 @@
     </script>
 
     <!-- Monthly Saving History Table -->
-    <livewire:saving-history />
+    <div class="savings-history">
+        <h3 class="section-title">Last 6 Months Monthly Saving History</h3>
+        <table class="savings-table">
+            <thead>
+                <tr>
+                    <th>Year and Month</th>
+                    <th>Income</th>
+                    <th>Expenses</th>
+                    <th>Savings</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for ($i = 11; $i >= 6 ; $i--)
+                <tr>
+                    <td>{{ $incomeVsExpense[$i]['year_month'] }}</td>
+                    <td>{{ $incomeVsExpense[$i]['income'] }}</td>
+                    <td>{{ $incomeVsExpense[$i]['expense'] }}</td>
+                    <td>{{ $incomeVsExpense[$i]['saving'] }}</td>
+                </tr>                  
+                @endfor
+            </tbody>
+        </table>
+    </div>
 </div>

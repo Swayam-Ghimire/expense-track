@@ -138,11 +138,10 @@ function renderIncomeVsExpenseChart(data) {
         return;
     }
 
-    // Sample data - replace with your actual data
     const sampleData = {
         months: data.labels,
-        income: [5000, 5000, 5200, 5000, 5500, 5000, 5300, 5000, 5100, 5000, 5400, 5000],
-        expenses: [3500, 4200, 3800, 4500, 3900, 4100, 3700, 4300, 3600, 4000, 3800, 4200]
+        income: data.income,
+        expenses: data.expense
     };
 
     incomeVsExpenseChartInstance = new Chart(ctx, {
@@ -155,17 +154,17 @@ function renderIncomeVsExpenseChart(data) {
                     data: sampleData.income,
                     borderColor: '#10b981',
                     backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                    borderWidth: 3,
+                    borderWidth: 1,
                     fill: true,
-                    tension: 0.4,
+                    tension: 0.2,
                     pointBackgroundColor: '#10b981',
                     pointBorderColor: '#ffffff',
-                    pointBorderWidth: 3,
-                    pointRadius: 6,
-                    pointHoverRadius: 9,
+                    pointBorderWidth: 1,
+                    pointRadius: 3,
+                    pointHoverRadius: 6,
                     pointHoverBackgroundColor: '#10b981',
                     pointHoverBorderColor: '#ffffff',
-                    pointHoverBorderWidth: 4
+                    pointHoverBorderWidth: 3
                 },
                 {
                     label: 'Expenses',
@@ -174,15 +173,15 @@ function renderIncomeVsExpenseChart(data) {
                     backgroundColor: 'rgba(220, 38, 38, 0.1)',
                     borderWidth: 3,
                     fill: true,
-                    tension: 0.4,
+                    tension: 0.2,
                     pointBackgroundColor: '#dc2626',
                     pointBorderColor: '#ffffff',
-                    pointBorderWidth: 3,
-                    pointRadius: 6,
-                    pointHoverRadius: 9,
+                    pointBorderWidth: 1,
+                    pointRadius: 3,
+                    pointHoverRadius: 6,
                     pointHoverBackgroundColor: '#dc2626',
                     pointHoverBorderColor: '#ffffff',
-                    pointHoverBorderWidth: 4
+                    pointHoverBorderWidth: 3
                 }
             ]
         },
