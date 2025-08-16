@@ -1,11 +1,10 @@
 # Expense-Track
+## Status Completed
 
-A personal expense tracker built using Laravel and Livewire. It allows users to input their income, track expenses, monitor savings, and view trends through visual charts and historical data.
+A personal expense tracker built using Laravel and Livewire. It allows users to input their income, track expenses, monitor savings, and view trends through visual charts and historical data using chart js. 
 
 ---
-
-## Features Completed
-
+## Features 
 - **User Authentication**
   - Login/logout system implemented
   - Home/dashboard protected with middleware
@@ -40,17 +39,19 @@ A personal expense tracker built using Laravel and Livewire. It allows users to 
 - **Responsive Design**
   - Made the site responsive with different devices.
   - Make UI mobile-friendly for all pages;
+
+- **Chart Integration**
+  - Used Chart.js to render actual data
+  - Showed monthly expense by category piechart and income vs expense line chart
 ---
 
 ## Planned / Future Work
-- **Chart Integration**
-  - Use Chart.js or similar to render actual data
-  - Show monthly expense trends and savings graphs
+- **Hosting amd making it live**
 ---
 
 ## Author
 
-**Built by [Swayam Ghimire](https://github.com/Swayam-Ghimire)**
+**Built by [Swayam Ghimire](https://github.com/Swayam-Ghimire/expense-track)**
 
 If you like the project, give it a star.
 
